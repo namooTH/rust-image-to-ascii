@@ -13,7 +13,7 @@ fn main() {
         for w in 0..resizedimg.width(){
             let pixel = resizedimg.get_pixel(w, h).to_rgb();
             let greyscale = (0.2990 * (pixel[0] as f32 / 255.0)) + (0.5870 * pixel[1] as f32 / 255.0) + (0.1140 * pixel[2] as f32 / 255.0);
-            column = format!("{}{}", column, ascii_chars.as_bytes()[(greyscale * ascii_chars.len() as f32).round() as usize] as char);       
+            column = format!("{}{}", column, ascii_chars.as_bytes()[(greyscale * ascii_chars.len() as f32 - 1.0) as usize] as char);       
         }
         art = format!("{}{}\n", art, column);
         column = String::new();
